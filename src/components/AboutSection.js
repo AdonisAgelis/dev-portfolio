@@ -1,5 +1,5 @@
 import React from 'react';
-
+// Import images
 import home1 from '../img/home1.png';
 
 const AboutSection = () => {
