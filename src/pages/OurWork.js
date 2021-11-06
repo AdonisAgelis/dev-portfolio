@@ -16,6 +16,7 @@ import {
   rainbowContainer,
 } from '../animation';
 import { useScroll } from '../components/useScroll';
+import ScrollTop from '../components/ScrollTop';
 
 const OurWork = () => {
   const [controls, element] = useScroll();
@@ -65,6 +66,7 @@ const OurWork = () => {
           <img src={goodtimes} alt="Good Times" />
         </Link>
       </Movie>
+      <ScrollTop />
     </Work>
   );
 };
