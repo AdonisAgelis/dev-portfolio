@@ -15,8 +15,12 @@ import {
   rainbow,
   rainbowContainer,
 } from '../animation';
+import { useScroll } from '../components/useScroll';
 
 const OurWork = () => {
+  const [controls, element] = useScroll();
+  const [controls2, element2] = useScroll();
+
   return (
     <Work
       variants={pageAnimation}
@@ -43,16 +47,20 @@ const OurWork = () => {
           </Hide>
         </Link>
       </Movie>
-      <Movie>
+      <Movie variants={fade} initial="hidden" animate={controls} ref={element}>
         <h2>The Racer</h2>
-        <div className="line"></div>
+        <motion.div variants={lineAnimation} className="line"></motion.div>
         <Link to="/work/the-racer">
           <img src={theracer} alt="The Racer" />
         </Link>
       </Movie>
-      <Movie>
-        <h2>Good TImes</h2>
-        <div className="line"></div>
+      <Movie
+        variants={fade}
+        initial="hidden"
+        animate={controls2}
+        ref={element2}>
+        <h2>Good Times</h2>
+        <motion.div variants={lineAnimation} className="line"></motion.div>
         <Link to="/work/good-times">
           <img src={goodtimes} alt="Good Times" />
         </Link>
@@ -70,7 +78,7 @@ const Work = styled(motion.div)`
   }
 `;
 
-const Movie = styled.div`
+const Movie = styled(motion.div)`
   padding-bottom: 10rem;
   .line {
     height: 0.5rem;
